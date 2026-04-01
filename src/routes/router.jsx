@@ -1,6 +1,7 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../pages/Home";
-import Countries from "../pages/Countries";
+const Home = lazy(() => import("../pages/Home"));
+const Countries = lazy(() => import("../pages/Countries"));
 import Country from "../pages/Country";
 import About from "../pages/About";
 import RootLayout from "../layouts/RootLayout";
