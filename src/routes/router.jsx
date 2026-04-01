@@ -4,6 +4,7 @@ import Countries from "../pages/Countries";
 import Country from "../pages/Country";
 import About from "../pages/About";
 import RootLayout from "../layouts/RootLayout";
+import { countriesLoader } from "../loaders/countriesLoader";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       {
         path: "/countries",
         element: <Countries />,
+        loader: countriesLoader,
       },
 
       {
