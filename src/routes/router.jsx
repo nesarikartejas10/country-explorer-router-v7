@@ -3,25 +3,32 @@ import Home from "../pages/Home";
 import Countries from "../pages/Countries";
 import Country from "../pages/Country";
 import About from "../pages/About";
+import RootLayout from "../layouts/RootLayout";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
 
-  {
-    path: "/countries",
-    element: <Countries />,
-  },
+      {
+        path: "/countries",
+        element: <Countries />,
+      },
 
-  {
-    path: "/countries/:countryName",
-    element: <Country />,
-  },
+      {
+        path: "/countries/:countryName",
+        element: <Country />,
+      },
 
-  {
-    path: "/about",
-    element: <About />,
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
   },
 ]);
