@@ -3,7 +3,7 @@ import api from "../lib/axios";
 
 export const getAllCountries = async () => {
   try {
-    const res = await api.get("/all?fields=name,flags");
+    const res = await api.get("/all?fields=name,capital,population,region");
     return res.data;
   } catch (error) {
     toast.error("Failed to fetch countries");
