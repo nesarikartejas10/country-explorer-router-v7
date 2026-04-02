@@ -3,13 +3,17 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const Countries = () => {
   const [search, setSearch] = useState("");
+  const [region, setRegion] = useState("");
   const countries = useLoaderData();
 
   const filteredCountries = countries.filter((country) => {
     const matchSearch =
       !search ||
       country.name.common.toLowerCase().includes(search.toLowerCase());
-    return matchSearch;
+
+    const matchRegion =
+      !region || country.region.toLowerCase() === region.toLowerCase();
+    return matchSearch && matchRegion;
   });
 
   return (
@@ -23,7 +27,11 @@ const Countries = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <select className="border border-gray-300 rounded px-3 py-2 w-full sm:w-1/2 focus:outline-none focus:border-indigo-500">
+        <select
+          className="border border-gray-300 rounded px-3 py-2 w-full sm:w-1/2 focus:outline-none focus:border-indigo-500"
+          value={region}
+          onChange={(e) => setRegion(e.target.value)}
+        >
           <option value="">All Regions</option>
           <option value="africa">Africa</option>
           <option value="americas">Americas</option>
