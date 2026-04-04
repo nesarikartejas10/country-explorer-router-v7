@@ -41,27 +41,36 @@ const Countries = () => {
         </select>
       </div>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {filteredCountries.map((country) => {
-          return (
-            <Link
-              to={`/countries/${country.name.common}`}
-              key={country.name.common}
-              className="bg-white border border-gray-200 rounded-xl p-4 shadow hover:shadow-lg transition"
-            >
-              <h3 className="text-indigo-600 text-lg font-semibold">
-                {country.name.common}
-              </h3>
+      {filteredCountries.length === 0 ? (
+        <div className="h-52 flex flex-col justify-center items-center text-indigo-600">
+          <p className="text-lg font-semibold">No countries found</p>
+          <p className="text-sm text-gray-500">
+            Try adjusting your search or filters
+          </p>
+        </div>
+      ) : (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {filteredCountries.map((country) => {
+            return (
+              <Link
+                to={`/countries/${country.name.common}`}
+                key={country.name.common}
+                className="bg-white border border-gray-200 rounded-xl p-4 shadow hover:shadow-lg transition"
+              >
+                <h3 className="text-indigo-600 text-lg font-semibold">
+                  {country.name.common}
+                </h3>
 
-              <div className="text-gray-600 text-sm mt-1">
-                Capital: {country.capital} <br />
-                Region: {country.region} <br />
-                Population: {country.population.toLocaleString()}
-              </div>
-            </Link>
-          );
-        })}
-      </ul>
+                <div className="text-gray-600 text-sm mt-1">
+                  Capital: {country.capital} <br />
+                  Region: {country.region} <br />
+                  Population: {country.population.toLocaleString()}
+                </div>
+              </Link>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 };
