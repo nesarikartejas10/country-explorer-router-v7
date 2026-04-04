@@ -16,7 +16,7 @@ export const getCountryByName = async (name) => {
     const res = await api.get(`/name/${name}?fullText=true`);
     return res.data;
   } catch (error) {
-    toast.error("Failed to fetch country");
+    toast.error("Failed to fetch country data");
     return null;
   }
 };

@@ -17,7 +17,7 @@ const Countries = () => {
   });
 
   return (
-    <div className="p-6">
+    <div className="p-6 mt-24 md:mt-18">
       <h2 className="text-2xl font-bold mb-6 text-gray-900">Countries</h2>
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
         <input
