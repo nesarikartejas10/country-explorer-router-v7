@@ -17,5 +17,6 @@ export const getCountryByName = async (name) => {
     return res.data;
   } catch (error) {
     toast.error("Failed to fetch country");
+    return null;
   }
 };

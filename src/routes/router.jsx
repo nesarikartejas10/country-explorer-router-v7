@@ -6,6 +6,7 @@ import Country from "../pages/Country";
 import About from "../pages/About";
 import RootLayout from "../layouts/RootLayout";
 import { countriesLoader } from "../loaders/countriesLoader";
+import { countryLoader } from "../loaders/countryLoader";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ export const router = createBrowserRouter([
       {
         path: "/countries/:countryName",
         element: <Country />,
+        loader: countryLoader,
       },
 
       {
